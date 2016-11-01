@@ -1,5 +1,4 @@
 package Model;
-
 import org.json.JSONArray;
 
 import Database.*;
@@ -8,7 +7,7 @@ public class Income {
 	public JSONArray getIncome() {
 
 		initSelect newSelect = new initSelect();
-		return newSelect.returnQuery("income", "id,name,money");
+		 return newSelect.returnQuery("income", "id,name,money");
 		 
 	}
 

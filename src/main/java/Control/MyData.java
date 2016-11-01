@@ -1,10 +1,11 @@
 package Control;
-
+import org.json.JSONArray;
 public class MyData {
 	
      private String itemName;
      private double money;
      private String type;
+     private JSONArray json;
      
      
 	public String getItemName() {
@@ -24,6 +25,12 @@ public class MyData {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public JSONArray getJson() {
+		return json;
+	}
+	public void setJson(JSONArray json) {
+		this.json = json;
 	}
     
 }

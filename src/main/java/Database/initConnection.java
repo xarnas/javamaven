@@ -12,7 +12,7 @@ public class initConnection {
 
 		// Database credentials
 		static final String USER = "root";
-		static final String PASS = "d4rbas";
+		static final String PASS = "";
 		public Connection conn = null;
 		public Statement stmt = null;
 
