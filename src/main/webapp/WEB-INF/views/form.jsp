@@ -1,16 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Income/Outcome</title>
+<link rel="stylesheet" href="resources/css/styleindex.css">
 </head>
 <body>
-	    
-	<div align="center">
+	<div class="container">
+
+		<header>
+			<h1>Income/Outcome App</h1>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href="form">Form</a></li>
+				<li><a href="accountview">Account View</a></li>
+			</ul>
+		</nav>
+
+		<article>
+			<div align="center">
 		        
 		<form:form action="form" method="post" commandName="userForm">
             <table border="0">
@@ -37,5 +48,12 @@
         </form:form>
 		    
 	</div>
+		</article>
+
+		<footer>Java</footer>
+
+	</div>
+
 </body>
 </html>
+
