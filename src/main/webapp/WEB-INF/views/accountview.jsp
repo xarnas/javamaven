@@ -12,24 +12,20 @@
 </head>
 <body>
 	<div class="container">
-
 		<header>
 			<h1>Income/Outcome App</h1>
 		</header>
-
 		<nav>
 			<ul>
 				<li><a href="form">Form</a></li>
 				<li><a href="accountview">Account View</a></li>
 			</ul>
 		</nav>
-
 		<article>
 			<script type="text/javascript">
- 	   
 	        var JSONArray = ${income};
-	        
-	        var i = 0
+	        var i = 0;
+	        console.log(JSONArray);
 	    	document.writeln("<br><br><div align='center'><table border='0'>");
 	        document.writeln("<tr><th>Id</th><th>Type</th><th>Value</th></tr>");
 	    	for ( var i = 0; i < JSONArray.length; i++) {
@@ -37,20 +33,16 @@
 	    		var crunchifyName;
 	    		var crunchifyValue;
 	    		document.writeln("<tr>");
- 	    		for ( var key in obj) {
- 	    			crunchifyValue = obj[key].toString();
- 	    			document.writeln("<td>"+crunchifyValue+ "</td>");
- 	    		}
- 	    		document.writeln("<tr>");
+ 	    			document.writeln("<td>"+obj["id"].toString()+ "</td>");
+ 	    			document.writeln("<td>"+obj["name"].toString()+ "</td>");
+ 	    			document.writeln("<td>"+obj["money"].toString()+ "</td>");
+  	    		document.writeln("<tr>");
 	    	}
 	    	document.writeln("</table></div>");
     </script>  
 		</article>
-
 		<footer>Java</footer>
-
 	</div>
-
 </body>
 </html>
 

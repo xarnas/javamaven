@@ -1,4 +1,6 @@
 package Control;
+import java.util.List;
+
 import org.json.JSONArray;
 public class MyData {
 	
@@ -6,8 +8,25 @@ public class MyData {
      private double money;
      private String type;
      private JSONArray json;
+     private String mType;
+     private String iType;
+     public List<String> itemNameA;
+     public List<String> typeA; 
      
      
+     
+    public List<String> getitemNameA() {
+         return itemNameA;
+     }
+    public void setitemNameA(List<String> itemNameA) {
+         this.itemNameA = itemNameA;
+     }
+    public List<String> gettypeA() {
+        return typeA;
+    }
+   public void settypeA(List<String> typeA) {
+        this.typeA = typeA;
+    }
 	public String getItemName() {
 		return itemName;
 	}
@@ -31,6 +50,18 @@ public class MyData {
 	}
 	public void setJson(JSONArray json) {
 		this.json = json;
+	}
+	public String getmType() {
+		return mType;
+	}
+	public void setmType(String mType) {
+		this.mType = mType;
+	}
+	public String getiType() {
+		return iType;
+	}
+	public void setiType(String iType) {
+		this.iType = iType;
 	}
     
 }

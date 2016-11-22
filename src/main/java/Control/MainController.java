@@ -8,15 +8,27 @@ public class MainController {
 	
        private Income income;
        private Outcome outcome;
+       private Type type;
        
 	public MainController() {
 		Income income = new Income();
 		Outcome outcome = new Outcome();
+		Type type = new Type();
 		this.outcome=outcome;
 		this.income=income;
+		this.type=type;
 	}
-
-	public JSONArray getIncome() {
+	
+    public JSONArray prepDropDown(String typex, String table){
+    	
+    	return type.getType(typex, table);
+    }
+ 
+    public void insertType(String typex,String table){
+    	type.insertType(typex, table);
+    	
+    }
+    public JSONArray getIncome() {
 		return income.getIncome();
 	}
 

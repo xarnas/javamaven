@@ -1,48 +1,71 @@
 package app.account;
 
-import Control.*;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-//Spring.io Post, Get 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import Control.MainController;
+import Control.MyData;
+import Database.ToJSON;
+
 @Controller
 @RequestMapping(value = "/form")
 public class FormController {
-
 	@RequestMapping(method = RequestMethod.GET)
-	public String viewRegistration(Map<String, Object> model) {
+	public String viewRegistration(ModelMap model) {
 		MyData userForm = new MyData();
-		model.put("userForm", userForm);
+		
+		 List<String> itemList = new ArrayList<>();
+	        itemList.add("Alga");
+	        itemList.add("Stipendija");
+	        itemList.add("so on...");
+	    
+	        List<String> typeList = new ArrayList<>();
+	        typeList.add("Income");
+	        typeList.add("Outcome");
+	        typeList.add("Other");
+	       
+	        JSONArray jsonArray = new JSONArray();
+	        jsonArray.put(itemList);
+	        
+			userForm.setJson(jsonArray);
+	        model.addAttribute("userForm", userForm);
 
+	        
+			model.addAttribute("itemNameA", userForm.getJson());
+			
+			
 		// List<String> InOutList = new ArrayList<>();
 		// InOutList.add("Income");
 		// InOutList.add("Outcome");
 		// model.put("InOutList", InOutList);
-
+	        
+	    //    model.addAttribute("itemNameA", "Hello");
+	    //    model.addAttribute ("typeA", "World");
+//	        model.put("userForm", userForm);
+	        
+	        
 		return "form";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String processRegistration(@ModelAttribute("userForm") MyData user, Map<String, Object> model) {
+	public String processRegistration(@ModelAttribute("userForm") MyData user, ModelMap model) {
 
 		MainController mc = new MainController();
 		mc.set(user.getItemName(), user.getMoney(), user.getType());
-
-		System.out.println("InOut: " + user.getItemName());
-		System.out.println("Money: " + user.getMoney());
-		System.out.println("Type: " + user.getType());
-
+//		if (!user.getType().equals("")){
+//			mc.insertType(user.getType(),"itype");
+//		}
+//		if (!user.getItemName().equals("")){
+//			mc.insertType(user.getmType(),"itype");
+//		}
 		return "form";
 	}
 }
